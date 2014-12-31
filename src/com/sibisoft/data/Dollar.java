@@ -1,7 +1,6 @@
 package com.sibisoft.data;
 
-public class Dollar {
-	private Integer amount ;
+public class Dollar extends Money {
 	
 	public  Dollar(Integer amount){
 		this.amount = amount;

@@ -15,6 +15,7 @@ public class DollarTest {
 		assertEquals(new Dollar(new Integer(10)),five.times(2));
 		assertEquals(new Dollar(new Integer(15)), five.times(3));
 	}
+	
 	@Test
 	public void testFrancMultiplication(){
 		Franc five = new Franc(5);
