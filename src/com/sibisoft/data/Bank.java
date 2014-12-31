@@ -2,6 +2,7 @@ package com.sibisoft.data;
 
 public class Bank {
 	public Money reduce(IExpression source, String to) {
-		return Money.dollar(10);
+		Sum sum= (Sum) source;
+		return sum.reduce(to);
 	}
 }

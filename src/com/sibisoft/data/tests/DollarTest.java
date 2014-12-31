@@ -3,6 +3,8 @@ package com.sibisoft.data.tests;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import com.sibisoft.data.Bank;
 import com.sibisoft.data.IExpression;
 import com.sibisoft.data.Money;
 import com.sibisoft.data.Sum;
@@ -12,8 +14,8 @@ public class DollarTest {
 	@Test
 	public void testMultiplication(){
 		Money five = Money.dollar(new Integer(5));
-		assertEquals(Money.dollar(new Integer(10)),five.times(2));
-		assertEquals(Money.dollar(new Integer(15)), five.times(3));
+		assertEquals(Money.dollar(new Integer(10)),five.times(new Integer(2)));
+		assertEquals(Money.dollar(new Integer(15)), five.times(new Integer(3)));
 	}
 	
 	@Test
@@ -32,10 +34,10 @@ public class DollarTest {
 	
 	@Test
 	public void testSimpleAddition(){
-		Money five= Money.dollar(5);
-		IExpression result= five.plus(five);
-		Sum sum = (Sum) result;
-		assertEquals(five, sum.augend);
-		assertEquals(five, sum.addend);
+		
+		IExpression sum= new Sum(Money.dollar(new Integer(3)), Money.dollar(new Integer(4)));
+		Bank bank= new Bank();
+		Money result= bank.reduce(sum, "USD");
+		assertEquals(Money.dollar(new Integer(7)), result);
 	}
 }
