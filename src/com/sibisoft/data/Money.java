@@ -1,6 +1,6 @@
 package com.sibisoft.data;
 
-abstract public class Money {
+ public class Money {
 	
 	protected Integer amount;
 	protected String currency;
@@ -21,12 +21,17 @@ abstract public class Money {
 	public boolean equals(Object object) {
 		Money money = (Money) object;
 		return (this.amount.intValue() == money.amount.intValue() &&
-				this.getClass().equals(money.getClass()));
+				this.currency().equals(money.currency()));
 	}
 	
-	abstract public Money times(Integer multiplier);
+	public Money times(Integer multiplier) {
+		return new Money(amount * multiplier,currency);
+	}
 	
 	public String currency(){
 		return currency;
+	}
+	public String toString() {
+		return amount + " " + currency;
 	}
 }

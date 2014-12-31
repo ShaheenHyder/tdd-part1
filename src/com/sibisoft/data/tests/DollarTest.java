@@ -3,6 +3,8 @@ package com.sibisoft.data.tests;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import com.sibisoft.data.Franc;
 import com.sibisoft.data.Money;
 
 public class DollarTest {
@@ -37,5 +39,10 @@ public class DollarTest {
 	public void testCurrency(){
 		assertEquals("USD",Money.dollar(new Integer(1)).currency());
 		assertEquals("CHF",Money.franc(new Integer(1)).currency());
+	}
+	
+	@Test
+	public void testDifferentClassEquality(){
+		assertTrue(new Money(10,"CHF").equals(new Franc(10,"CHF")));
 	}
 }
