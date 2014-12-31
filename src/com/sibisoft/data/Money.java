@@ -11,11 +11,11 @@ package com.sibisoft.data;
 	}
 	
 	public static Money dollar(Integer amount){
-		return new Dollar(amount,"USD");
+		return new Money(amount,"USD");
 	}
 	
 	public static Money franc(Integer amount) {
-		return new Franc(amount,"CHF");
+		return new Money(amount,"CHF");
 	}
 	
 	public boolean equals(Object object) {
