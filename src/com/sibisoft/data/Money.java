@@ -35,7 +35,7 @@ package com.sibisoft.data;
 		return amount + " " + currency;
 	}
 	public IExpression plus(Money addend){
-		return new Money(amount + addend.amount,currency);
+		return new Sum(this,addend);
 		
 	}
 }

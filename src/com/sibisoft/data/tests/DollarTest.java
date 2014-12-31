@@ -3,10 +3,9 @@ package com.sibisoft.data.tests;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
-
-import com.sibisoft.data.Bank;
 import com.sibisoft.data.IExpression;
 import com.sibisoft.data.Money;
+import com.sibisoft.data.Sum;
 
 public class DollarTest {
 
@@ -33,13 +32,10 @@ public class DollarTest {
 	
 	@Test
 	public void testSimpleAddition(){
-		//Money sum = Money.dollar(new Integer(5)).plus(Money.dollar(new Integer(5)));
-		//assertEquals(Money.dollar(new Integer(10)),sum);
 		Money five= Money.dollar(5);
-		IExpression sum= five.plus(five);
-		Bank bank= new Bank();
-		Money reduced = bank.reduce(sum, "USD");
-		assertEquals(Money.dollar(new Integer(10)),reduced);
-		
+		IExpression result= five.plus(five);
+		Sum sum = (Sum) result;
+		assertEquals(five, sum.augend);
+		assertEquals(five, sum.addend);
 	}
 }
