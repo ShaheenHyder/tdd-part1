@@ -6,11 +6,11 @@ abstract public class Money {
 	protected String currency;
 	
 	public static Money dollar(Integer amount){
-		return new Dollar(amount);
+		return new Dollar(amount,"USD");
 	}
 	
 	public static Money franc(Integer amount) {
-		return new Franc(amount);
+		return new Franc(amount,"CHF");
 	}
 	
 	public boolean equals(Object object) {
@@ -20,6 +20,7 @@ abstract public class Money {
 	}
 	
 	abstract public Money times(Integer multiplier);
+	
 	public String currency(){
 		return currency;
 	}

@@ -4,13 +4,13 @@ public class Franc extends Money{
 	
 	private String currency;
 	
-	public  Franc(Integer amount){
+	public  Franc(Integer amount,String currency){
 		this.amount = amount;
-		this.currency = "CHF";
+		this.currency = currency;
 	}
 	
 	public Money times(Integer multiplier) {
-		return new Franc(amount * multiplier);
+		return Money.franc(amount * multiplier);
 	}
 	
 	public String currency(){
