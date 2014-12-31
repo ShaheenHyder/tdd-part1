@@ -4,9 +4,8 @@ public class Franc extends Money{
 	
 	private String currency;
 	
-	public  Franc(Integer amount,String currency){
-		this.amount = amount;
-		this.currency = currency;
+	public Franc(Integer amount,String currency){
+		super(amount,currency);
 	}
 	
 	public Money times(Integer multiplier) {

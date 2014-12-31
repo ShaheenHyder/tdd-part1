@@ -5,6 +5,11 @@ abstract public class Money {
 	protected Integer amount;
 	protected String currency;
 	
+	public Money(Integer amount, String currency){
+		this.amount = amount;
+		this.currency = currency;
+	}
+	
 	public static Money dollar(Integer amount){
 		return new Dollar(amount,"USD");
 	}
