@@ -1,6 +1,6 @@
 package com.sibisoft.data;
 
- public class Money {
+ public class Money implements IExpression{
 	
 	protected Integer amount;
 	protected String currency;
@@ -33,5 +33,9 @@ package com.sibisoft.data;
 	}
 	public String toString() {
 		return amount + " " + currency;
+	}
+	public IExpression plus(Money addend){
+		return new Money(amount + addend.amount,currency);
+		
 	}
 }
