@@ -1,7 +1,9 @@
 package com.sibisoft.data;
 
 abstract public class Money {
+	
 	protected Integer amount;
+	protected String currency;
 	
 	public static Money dollar(Integer amount){
 		return new Dollar(amount);
@@ -18,4 +20,7 @@ abstract public class Money {
 	}
 	
 	abstract public Money times(Integer multiplier);
+	public String currency(){
+		return currency;
+	}
 }
