@@ -6,14 +6,6 @@ public class Dollar {
 	public  Dollar(Integer amount){
 		this.amount = amount;
 	}
-
-	public Integer getAmount() {
-		return amount;
-	}
-
-	public void setAmount(Integer amount) {
-		this.amount = amount;
-	}
 	
 	public Dollar times(Integer multiplier){
 		return (new Dollar(this.amount * multiplier));
