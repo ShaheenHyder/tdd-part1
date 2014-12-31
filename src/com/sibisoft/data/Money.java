@@ -38,4 +38,7 @@ package com.sibisoft.data;
 		return new Sum(this,addend);
 		
 	}
+	public Money reduce(String to) {
+		return this;
+	}
 }
