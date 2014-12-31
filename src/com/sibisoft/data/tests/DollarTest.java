@@ -27,5 +27,7 @@ public class DollarTest {
 	public void testEquality(){
 		assertTrue(new Dollar(new Integer(5)).equals(new Dollar(new Integer(5))));
 		assertFalse(new Dollar(new Integer(5)).equals(new Dollar(new Integer(6))));
+		assertTrue(new Franc(new Integer(5)).equals(new Franc(new Integer(5))));
+		assertFalse(new Franc(new Integer(5)).equals(new Franc(new Integer(6))));
 	}
 }
