@@ -17,10 +17,10 @@ public class DollarTest {
 	public void testMultiplication(){
 		Dollar five = new Dollar(5);
 		Dollar product = five.times(2);
-		assertEquals(new Integer(10), product.getAmount());
+		assertEquals(new Dollar(new Integer(10)), product);
 		product = five.times(3);
 		five.times(3);
-		assertEquals(new Integer(15), product.getAmount());
+		assertEquals(new Dollar(new Integer(15)), product);
 	}
 	
 	@Test
