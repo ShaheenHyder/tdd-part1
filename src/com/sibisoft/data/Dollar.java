@@ -11,8 +11,4 @@ public class Dollar extends Money {
 	public Money times(Integer multiplier){
 		return Money.dollar(this.amount * multiplier);
 	}
-	
-	public String currency(){
-		return currency;
-	}
 }
