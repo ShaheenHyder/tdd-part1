@@ -2,8 +2,6 @@ package com.sibisoft.data;
 
 public class Franc extends Money{
 	
-	private String currency;
-	
 	public Franc(Integer amount,String currency){
 		super(amount,currency);
 	}
