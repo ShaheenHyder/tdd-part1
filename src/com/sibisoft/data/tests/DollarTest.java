@@ -3,31 +3,33 @@ package com.sibisoft.data.tests;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
-
-import com.sibisoft.data.Dollar;
-import com.sibisoft.data.Franc;
+import com.sibisoft.data.Money;
 
 public class DollarTest {
 
 	@Test
 	public void testMultiplication(){
-		Dollar five = new Dollar(5);
-		assertEquals(new Dollar(new Integer(10)),five.times(2));
-		assertEquals(new Dollar(new Integer(15)), five.times(3));
+		Money five = Money.dollar(new Integer(5));
+		assertEquals(Money.dollar(new Integer(10)),five.times(2));
+		assertEquals(Money.dollar(new Integer(15)), five.times(3));
 	}
 	
 	@Test
 	public void testFrancMultiplication(){
-		Franc five = new Franc(5);
-		assertEquals(new Franc(new Integer(10)),five.times(2));
-		assertEquals(new Franc(new Integer(15)), five.times(3));
+		Money five =  Money.franc(new Integer(5));
+		assertEquals( Money.franc(new Integer(10)),five.times(2));
+		assertEquals( Money.franc(new Integer(15)), five.times(3));
 	}
 	
 	@Test
 	public void testEquality(){
-		assertTrue(new Dollar(new Integer(5)).equals(new Dollar(new Integer(5))));
-		assertFalse(new Dollar(new Integer(5)).equals(new Dollar(new Integer(6))));
-		assertTrue(new Franc(new Integer(5)).equals(new Franc(new Integer(5))));
-		assertFalse(new Franc(new Integer(5)).equals(new Franc(new Integer(6))));
+		
+		assertTrue(Money.dollar(new Integer(5)).equals(Money.dollar(new Integer(5))));
+		assertFalse(Money.dollar(new Integer(5)).equals(Money.dollar(new Integer(6))));
+		
+		assertTrue(Money.franc(new Integer(5)).equals(Money.franc(new Integer(5))));
+		assertFalse(Money.franc(new Integer(5)).equals(Money.franc(new Integer(6))));
+	
+		assertFalse(Money.franc(new Integer(5)).equals(Money.dollar(new Integer(5))));
 	}
 }
