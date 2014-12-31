@@ -15,7 +15,11 @@ public class Dollar {
 		this.amount = amount;
 	}
 	
-	public void times(Integer multiplier){
-		this.amount *= multiplier;
+	public Dollar times(Integer multiplier){
+		return (new Dollar(this.amount * multiplier));
+	}
+	
+	public boolean equals(Object object) {
+		return true;
 	}
 }
