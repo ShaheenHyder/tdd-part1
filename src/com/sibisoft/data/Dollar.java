@@ -11,7 +11,7 @@ public class Dollar extends Money {
 	}
 	
 	public boolean equals(Object object) {
-		Money dollar = (Money) object;
-		return this.amount.intValue() == dollar.amount.intValue();
+		Money money = (Money) object;
+		return this.amount.intValue() == money.amount.intValue();
 	}
 }
