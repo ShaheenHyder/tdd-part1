@@ -18,9 +18,8 @@ public class Sum implements IExpression{
 		// TODO Auto-generated method stub
 		return null;
 	}
-	@Override
+	
 	public IExpression plus(IExpression addend) {
-		// TODO Auto-generated method stub
-		return null;
+		return new Sum(this,addend);
 	}
 }

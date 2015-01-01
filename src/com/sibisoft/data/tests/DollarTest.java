@@ -59,12 +59,11 @@ public class DollarTest {
 		assertEquals(new Integer(1), new Bank().rate("USD", "USD"));
 	}
 	
-	/*	
 	@Test
 	public void testArrayEquals(){
-		assertEquals(new Object[]{"abc"} , new Object[]{"abc"});
+		//assertEquals(new Object[]{"abc"} , new Object[]{"abc"});
+		//assertArrayEquals(new Object[]{"abc"} , new Object[]{"abc"});
 	}
-	*/
 	
 	@Test
 	public void testMixedAddition(){
@@ -75,6 +74,20 @@ public class DollarTest {
 		Bank bank = new Bank();
 		bank.addRate("CHF","USD",2);
 		Money result = bank.reduce(fiveBucks.plus(tenFrancs),"USD");
+		assertEquals(expectedResult, result);
+
+	}
+	
+	@Test
+	public void testSumPlusMoney(){
+		//$5 + 10 CHF = $10 if rate is 2:1
+		IExpression fiveBucks = Money.dollar(new Integer(5));
+		IExpression tenFrancs = Money.franc(new Integer(10));
+		IExpression expectedResult = Money.dollar(new Integer(15));
+		Bank bank = new Bank();
+		bank.addRate("CHF","USD",2);
+		IExpression sum = new Sum(fiveBucks,tenFrancs).plus(fiveBucks);
+		Money result = bank.reduce(sum,"USD");
 		assertEquals(expectedResult, result);
 
 	}
