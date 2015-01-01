@@ -24,7 +24,7 @@ package com.sibisoft.data;
 				this.currency().equals(money.currency()));
 	}
 	
-	public Money times(Integer multiplier) {
+	public IExpression times(Integer multiplier) {
 		return new Money(amount * multiplier,currency);
 	}
 	
@@ -34,7 +34,7 @@ package com.sibisoft.data;
 	public String toString() {
 		return amount + " " + currency;
 	}
-	public IExpression plus(Money addend){
+	public IExpression plus(IExpression addend){
 		return new Sum(this,addend);
 		
 	}
