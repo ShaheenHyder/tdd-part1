@@ -58,6 +58,7 @@ public class DollarTest {
 	public void testIdentityRate(){
 		assertEquals(new Integer(1), new Bank().rate("USD", "USD"));
 	}
+	
 	/*	
 	@Test
 	public void testArrayEquals(){
@@ -65,4 +66,16 @@ public class DollarTest {
 	}
 	*/
 	
+	@Test
+	public void testMixedAddition(){
+		//$5 + 10 CHF = $10 if rate is 2:1
+		Money fiveBucks = Money.dollar(new Integer(5));
+		Money tenFrancs = Money.franc(new Integer(10));
+		Money expectedResult = Money.dollar(new Integer(10));
+		Bank bank = new Bank();
+		bank.addRate("CHF","USD",2);
+		Money result = bank.reduce(fiveBucks.plus(tenFrancs),"USD");
+		assertEquals(expectedResult, result);
+
+	}
 }
