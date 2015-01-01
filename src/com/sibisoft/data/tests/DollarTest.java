@@ -20,7 +20,6 @@ public class DollarTest {
 	
 	@Test
 	public void testEquality(){
-		
 		assertTrue(Money.dollar(new Integer(5)).equals(Money.dollar(new Integer(5))));
 		assertFalse(Money.dollar(new Integer(5)).equals(Money.dollar(new Integer(6))));
 		assertFalse(Money.franc(new Integer(5)).equals(Money.dollar(new Integer(5))));
@@ -34,7 +33,6 @@ public class DollarTest {
 	
 	@Test
 	public void testSimpleAddition(){
-		
 		IExpression sum= new Sum(Money.dollar(new Integer(3)), Money.dollar(new Integer(4)));
 		Bank bank= new Bank();
 		Money result= bank.reduce(sum, "USD");
@@ -48,4 +46,11 @@ public class DollarTest {
 		assertEquals(Money.dollar(1), result);
 	}
 	
+	@Test
+	public void testReduceMoneyDifferentCurrency(){
+		Bank bank = new Bank();
+		//bank.addRate("CHF","USD",2);
+		Money result = bank.reduce(Money.franc(new Integer(2)),"USD");
+		assertEquals(Money.dollar(new Integer(1)),result);
+	}
 }

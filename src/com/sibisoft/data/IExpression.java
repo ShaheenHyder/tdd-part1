@@ -1,6 +1,6 @@
 package com.sibisoft.data;
 
 public interface IExpression {
-	Money reduce(String to);
+	Money reduce(Bank bank, String to);
 
 }
