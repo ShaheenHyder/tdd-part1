@@ -15,8 +15,7 @@ public class Sum implements IExpression{
 	
 	@Override
 	public IExpression times(Integer multiplier) {
-		// TODO Auto-generated method stub
-		return null;
+		return new Sum(augend.times(multiplier),addend.times(multiplier));
 	}
 	
 	public IExpression plus(IExpression addend) {

@@ -91,4 +91,21 @@ public class DollarTest {
 		assertEquals(expectedResult, result);
 
 	}
+		
+	@Test
+	public void testSumTimes(){
+		//($5*2 + CHF10*2) = $20
+		IExpression fiveBucks = Money.dollar(new Integer(5));
+		IExpression tenFrancs = Money.franc(new Integer(10));
+		IExpression expectedResult = Money.dollar(new Integer(20));
+		
+		Bank bank = new Bank();
+		bank.addRate("CHF","USD",2);
+		
+		IExpression times = new Sum(fiveBucks,tenFrancs).times(2);
+		
+		Money result = bank.reduce(times,"USD");
+		assertEquals(expectedResult, result);
+		
+	}
 }
